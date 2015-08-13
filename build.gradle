@@ -9,6 +9,12 @@ sourceCompatibility = 1.7   // 设置 JDK 版本
 webAppDirName = 'WebRoot'    // 设置 WebApp 根目录
 //sourceSets.main.java.srcDir 'src/main/java'   // 设置 Java 源码所在目录
 
+[compileJava,compileTestJava,javadoc]*.options*.encoding = "UTF-8"
+//变量
+ext {
+	springVersion = '4.2.0.RELEASE'
+}
+
 // 设置 maven 库地址
 repositories {
 	mavenCentral() // 中央库
@@ -17,6 +23,11 @@ repositories {
 
 // 设置依赖
 dependencies {
+	//spring
+	compile "org.springframework:spring-context:${springVersion}"
+	compile "org.springframework:spring-web:${springVersion}"
+	compile "org.springframework:spring-test:${springVersion}"
+	
 	providedCompile 'javax.servlet:servlet-api:2.5' // 编译期
 	providedRuntime 'javax.servlet:jstl:1.2'    // 运行时
 }
